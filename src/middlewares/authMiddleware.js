@@ -23,6 +23,8 @@ async function signUpMiddleware (request, response, next) {
     }
 }
 
+
+
 export {
     signUpMiddleware
 };
