@@ -1,4 +1,6 @@
 import bcrypt from 'bcrypt';
+import { v4 as uuid } from 'uuid';
+
 import { db } from '../database/db.js';
 import { COLLECTIONS } from '../enums/collections.js';
 import { STATUS_CODE } from '../enums/statusCode.js';
@@ -27,7 +29,7 @@ export async function loginUser (request, response) {
          return response.status(STATUS_CODE.OK).send({token, name: userFound.name});
       }
 
-      response.status(200).send('cadastrou');
+      response.status(STATUS_CODE.NOT_FOUND).send('Email ou senha inválidos');
    }
    catch(error) {
       console.error('Erro ao logar usuário');
