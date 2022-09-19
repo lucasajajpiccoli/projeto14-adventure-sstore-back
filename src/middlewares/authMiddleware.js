@@ -19,6 +19,7 @@ async function signUpMiddleware (request, response, next) {
 
         next();
     } catch (error) {
+        console.error(error.message);
         response.status(STATUS_CODE.SERVER_ERROR).send(error.message);
     }
 }
